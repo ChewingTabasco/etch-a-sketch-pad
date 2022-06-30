@@ -31,7 +31,13 @@ function removeAllTiles() {
 }
 
 function checkGridLimit(value) {
-  if (value > 100) {
+  if (value > 100 || value < 1) {
+    alert("Grid width must be greater than 0 and cannot exceed 100.");
+    return true;
+  } else if (!value || typeof value === "string") {
+    alert(
+      "Invalid input. Please enter a number greater than 0 and no greater than 100."
+    );
     return true;
   }
   return false;
@@ -41,8 +47,7 @@ renderGrid(16);
 
 gridSizeBtn.addEventListener("click", function () {
   let desiredSize = prompt("Set your desired grid width:", "16");
-  if (checkGridLimit(desiredSize)) {
-    alert("Grid width cannot exceed 100.");
+  if (checkGridLimit(parseInt(desiredSize))) {
     return;
   }
   removeAllTiles();
