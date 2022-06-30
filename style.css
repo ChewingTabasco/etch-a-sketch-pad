@@ -12,7 +12,7 @@
   flex-wrap: wrap;
 }
 
-.grid-tile16 {
+.grid-tile {
   border: 1px solid blue;
   height: 40px;
   width: 40px;
