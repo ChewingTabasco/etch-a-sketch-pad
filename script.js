@@ -7,5 +7,5 @@ for (let i = 1; i <= gridArea; i++) {
   //   gridContainer.appendChild(document.createElement("div"));
 
   gridContainer.appendChild(gridTile);
-  gridTile.classList.add("grid-tile");
+  gridTile.classList.add(`grid-tile${gridWidth}`);
 }
