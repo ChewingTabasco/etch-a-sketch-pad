@@ -1,8 +1,7 @@
 const gridContainer = document.querySelector("#grid-container");
-let gridWidth = 16;
+let gridWidth = 32;
 const gridArea = gridWidth * gridWidth;
 let gridTile;
-// let tileSize = 640 / gridWidth;
 
 for (let i = 1; i <= gridArea; i++) {
   gridTile = document.createElement("div");
@@ -11,6 +10,6 @@ for (let i = 1; i <= gridArea; i++) {
 
   //Change background-color of gridTile on mouseover
   gridTile.addEventListener("mouseover", function (e) {
-    e.target.setAttribute("style", "background-color: blue;");
+    e.target.style.backgroundColor = "blue";
   });
 }
