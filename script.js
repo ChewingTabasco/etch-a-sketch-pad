@@ -1,6 +1,7 @@
 const gridContainer = document.querySelector("#grid-container");
 const gridSizeBtn = document.querySelector("#grid-size-btn");
 let gridTile;
+let currentGridSize;
 
 function renderGrid(gridWidth, defaultWidth = 16) {
   const tileSize = 640 / gridWidth;
@@ -43,6 +44,16 @@ function checkGridLimit(value) {
   return false;
 }
 
+function clearGrid() {
+  if (currentGridSize) {
+    removeAllTiles();
+    renderGrid(currentGridSize);
+  } else {
+    removeAllTiles();
+    renderGrid(16);
+  }
+}
+
 renderGrid(16);
 
 gridSizeBtn.addEventListener("click", function () {
@@ -50,6 +61,7 @@ gridSizeBtn.addEventListener("click", function () {
   if (checkGridLimit(parseInt(desiredSize))) {
     return;
   }
+  currentGridSize = parseInt(desiredSize);
   removeAllTiles();
   renderGrid(parseInt(desiredSize));
 });
