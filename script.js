@@ -1,5 +1,6 @@
 const gridContainer = document.querySelector("#grid-container");
 const gridSizeBtn = document.querySelector("#grid-size-btn");
+const clearGridBtn = document.querySelector("#clear-grid-btn");
 let gridTile;
 let currentGridSize;
 
@@ -65,3 +66,5 @@ gridSizeBtn.addEventListener("click", function () {
   removeAllTiles();
   renderGrid(parseInt(desiredSize));
 });
+
+clearGridBtn.addEventListener("click", clearGrid);
