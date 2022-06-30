@@ -9,6 +9,7 @@ for (let i = 1; i <= gridArea; i++) {
   gridContainer.appendChild(gridTile);
   gridTile.classList.add("grid-tile");
 
+  //Set tile size based on how many tiles wide the grid is
   gridTile.setAttribute(
     "style",
     `height: ${tileSize}px; width: ${tileSize}px;`
