@@ -1,11 +1,11 @@
 const gridContainer = document.querySelector("#grid-container");
 const gridSizeBtn = document.querySelector("#grid-size-btn");
-let gridWidth = 16;
-const gridArea = gridWidth * gridWidth;
 let gridTile;
-let tileSize = 640 / gridWidth;
 
-function renderGrid() {
+function renderGrid(gridWidth, defaultWidth = 16) {
+  const tileSize = 640 / gridWidth;
+  let gridArea = gridWidth * gridWidth;
+
   for (let i = 1; i <= gridArea; i++) {
     gridTile = document.createElement("div");
     gridContainer.appendChild(gridTile);
@@ -30,10 +30,10 @@ function removeAllTiles() {
   }
 }
 
-renderGrid();
+renderGrid(16);
 
-// gridSizeBtn.addEventListener("click", function () {
-//   let desiredSize = prompt("Set your desired grid width:", "16");
-//   gridWidth = parseInt(desiredSize);
-//   renderGrid();
-// });
+gridSizeBtn.addEventListener("click", function () {
+  let desiredSize = prompt("Set your desired grid width:", "16");
+  removeAllTiles();
+  renderGrid(parseInt(desiredSize));
+});
