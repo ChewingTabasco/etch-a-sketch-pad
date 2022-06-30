@@ -30,10 +30,21 @@ function removeAllTiles() {
   }
 }
 
+function checkGridLimit(value) {
+  if (value > 100) {
+    return true;
+  }
+  return false;
+}
+
 renderGrid(16);
 
 gridSizeBtn.addEventListener("click", function () {
   let desiredSize = prompt("Set your desired grid width:", "16");
+  if (checkGridLimit(desiredSize)) {
+    alert("Grid width cannot exceed 100.");
+    return;
+  }
   removeAllTiles();
   renderGrid(parseInt(desiredSize));
 });
