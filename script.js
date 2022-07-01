@@ -5,6 +5,7 @@ const colorModeBtn = document.querySelector("#color-mode-btn");
 let gridTile;
 let currentGridSize;
 
+let colorModeOn = false;
 let tileColor = "blue";
 
 function renderGrid(gridWidth, defaultWidth = 16) {
@@ -74,5 +75,11 @@ gridSizeBtn.addEventListener("click", function () {
 clearGridBtn.addEventListener("click", clearGrid);
 
 colorModeBtn.addEventListener("click", function () {
-  tileColor = "black";
+  if (!colorModeOn) {
+    colorModeOn = true;
+    tileColor = "black";
+  } else {
+    colorModeOn = false;
+    tileColor = "blue";
+  }
 });
