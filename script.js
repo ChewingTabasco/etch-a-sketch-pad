@@ -5,19 +5,20 @@ let gridTile;
 let currentGridSize;
 
 function renderGrid(gridWidth, defaultWidth = 16) {
-  const tileSize = 640 / gridWidth;
-  let gridArea = gridWidth * gridWidth;
+  let gridArea = Math.pow(gridWidth, 2);
 
+  //Limit the number of columns in the grid to the desired number of tiles wide the grid will be
+  gridContainer.setAttribute(
+    "style",
+    `grid-template-columns: repeat(${gridWidth}, 1fr)`
+  );
+
+  //Create a number of grid tiles equal to the area of the grid
+  //Append each tile to the container
   for (let i = 1; i <= gridArea; i++) {
     gridTile = document.createElement("div");
     gridContainer.appendChild(gridTile);
     gridTile.classList.add("grid-tile");
-
-    //Set tile size based on how many tiles wide the grid is
-    gridTile.setAttribute(
-      "style",
-      `height: ${tileSize}px; width: ${tileSize}px;`
-    );
 
     //Change background-color of gridTile on mouseover
     gridTile.addEventListener("mouseover", function (e) {
