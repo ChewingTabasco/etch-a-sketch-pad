@@ -1,8 +1,11 @@
 const gridContainer = document.querySelector("#grid-container");
 const gridSizeBtn = document.querySelector("#grid-size-btn");
 const clearGridBtn = document.querySelector("#clear-grid-btn");
+const colorModeBtn = document.querySelector("#color-mode-btn");
 let gridTile;
 let currentGridSize;
+
+let tileColor = "blue";
 
 function renderGrid(gridWidth, defaultWidth = 16) {
   let gridArea = Math.pow(gridWidth, 2);
@@ -22,7 +25,7 @@ function renderGrid(gridWidth, defaultWidth = 16) {
 
     //Change background-color of gridTile on mouseover
     gridTile.addEventListener("mouseover", function (e) {
-      e.target.style.backgroundColor = "blue";
+      e.target.style.backgroundColor = tileColor;
     });
   }
 }
@@ -69,3 +72,7 @@ gridSizeBtn.addEventListener("click", function () {
 });
 
 clearGridBtn.addEventListener("click", clearGrid);
+
+colorModeBtn.addEventListener("click", function () {
+  tileColor = "black";
+});
