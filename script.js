@@ -7,9 +7,6 @@ let currentGridSize;
 
 let colorModeOn = false;
 let tileColor = "blue";
-let rgbRandom1;
-let rgbRandom2;
-let rgbRandom3;
 
 function renderGrid(gridWidth, defaultWidth = 16) {
   let gridArea = Math.pow(gridWidth, 2);
@@ -29,11 +26,11 @@ function renderGrid(gridWidth, defaultWidth = 16) {
 
     //Change background-color of gridTile on mouseover
     gridTile.addEventListener("mouseover", function (e) {
-      e.target.style.backgroundColor = tileColor;
+      if (colorModeOn) {
+        tileColor = getRandomRGB();
+      }
 
-      rgbRandom1 = Math.floor(Math.random() * 255);
-      rgbRandom2 = Math.floor(Math.random() * 255);
-      rgbRandom3 = Math.floor(Math.random() * 255);
+      e.target.style.backgroundColor = tileColor;
     });
   }
 }
@@ -67,6 +64,14 @@ function clearGrid() {
   }
 }
 
+function getRandomRGB() {
+  let rgbRandom1 = Math.floor(Math.random() * 255);
+  let rgbRandom2 = Math.floor(Math.random() * 255);
+  let rgbRandom3 = Math.floor(Math.random() * 255);
+
+  return `rgb(${rgbRandom1}, ${rgbRandom2}, ${rgbRandom3})`;
+}
+
 renderGrid(16);
 
 gridSizeBtn.addEventListener("click", function () {
@@ -84,11 +89,6 @@ clearGridBtn.addEventListener("click", clearGrid);
 colorModeBtn.addEventListener("click", function () {
   if (!colorModeOn) {
     colorModeOn = true;
-    tileColor = `rgb(
-     ${rgbRandom1},
-     ${rgbRandom2},
-     ${rgbRandom3}
-    )`;
   } else {
     colorModeOn = false;
     tileColor = "blue";
