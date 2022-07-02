@@ -6,7 +6,7 @@ let gridTile;
 let currentGridSize;
 
 let colorModeOn = false;
-let tileColor = "blue";
+let tileColor = "black";
 
 function renderGrid(gridWidth, defaultWidth = 16) {
   let gridArea = Math.pow(gridWidth, 2);
@@ -91,6 +91,6 @@ colorModeBtn.addEventListener("click", function () {
     colorModeOn = true;
   } else {
     colorModeOn = false;
-    tileColor = "blue";
+    tileColor = "black";
   }
 });
